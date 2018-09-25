@@ -15,43 +15,97 @@
 	</form>
 	<br><br>
 
-	<form action="{{ url_for('subtract') }}" method="POST" id="SUB">
+	<form id="SUB">
 		<input type="number" name="subx" id="subx" placeholder="X" required/>
 		-
 		<input type="number" name="suby" id="suby" placeholder="Y" required/>
-		<button type="submit" form="SUB" value="Submit" onclick="add()">SUB</button> = <input name="add_result" id="add_result" disabled/>
+		<button type="button" form="SUB" value="Submit" onclick="sub()">SUB</button> = <input name="sub_result" id="sub_result" disabled/>
 	</form>
 	<br><br>
 
-	<form action="{{ url_for('multiply') }}" method="POST" id="MUL">
+	<form id="MUL">
 		<input type="number" name="mulx" id="mulx" placeholder="X" required/>
 		*
 		<input type="number" name="muly" id="muly" placeholder="Y" required/>
-		<button type="submit" form="MUL" value="Submit" onclick="add()">MUL</button> = <input name="add_result" id="add_result" disabled/>
+		<button type="button" form="MUL" value="Submit" onclick="mul()">MUL</button> = <input name="mul_result" id="mul_result" disabled/>
 	</form>
 	<br><br>
 
-	<form action="{{ url_for('divide') }}" method="POST" id="DIV">
+	<form id="DIV">
 		<input type="number" name="divx" id="divx" placeholder="X" required/>
 		/
 		<input type="number" name="divy" id="divy" placeholder="Y" required/>
-		<button type="submit" form="DIV" value="Submit" onclick="add()">DIV</button> = <input name="add_result" id="add_result" disabled/>
+		<button type="button" form="DIV" value="Submit" onclick="div()">DIV</button> = <input name="div_result" id="div_result" disabled/>
 	</form>
 	<br><br>
 
 	<script>
 		function add(){
 			var xhttp = new XMLHttpRequest();
+			var formData = new FormData(document.getElementById("ADD"))
 			xhttp.open("POST", "{{ url_for('add') }}", true)
 			xhttp.responseType = 'json'
-			output = "result!!";
 			xhttp.onload = function(e){
 				if(this.status == 200){
-					console.log("hey!!");
+					var resp = this.response;
+					console.log(resp);
+
+					var result = resp['result']
+					document.getElementById("add_result").value = result;
 				}
 			};
-			document.getElementById("add_result").value = output;
-			xhttp.send();
+			xhttp.send(formData);
+		}
+
+		function sub(){
+			var xhttp = new XMLHttpRequest();
+			var formData = new FormData(document.getElementById("SUB"))
+			xhttp.open("POST", "{{ url_for('subtract') }}", true)
+			xhttp.responseType = 'json'
+			xhttp.onload = function(e){
+				if(this.status == 200){
+					var resp = this.response;
+					console.log(resp);
+
+					var result = resp['result']
+					document.getElementById("sub_result").value = result;
+				}
+			};
+			xhttp.send(formData);
+		}
+
+		function mul(){
+			var xhttp = new XMLHttpRequest();
+			var formData = new FormData(document.getElementById("MUL"))
+			xhttp.open("POST", "{{ url_for('multiply') }}", true)
+			xhttp.responseType = 'json'
+			xhttp.onload = function(e){
+				if(this.status == 200){
+					var resp = this.response;
+					console.log(resp);
+
+					var result = resp['result']
+					document.getElementById("mul_result").value = result;
+				}
+			};
+			xhttp.send(formData);
+		}
+
+		function div(){
+			var xhttp = new XMLHttpRequest();
+			var formData = new FormData(document.getElementById("DIV"))
+			xhttp.open("POST", "{{ url_for('divide') }}", true)
+			xhttp.responseType = 'json'
+			xhttp.onload = function(e){
+				if(this.status == 200){
+					var resp = this.response;
+					console.log(resp);
+
+					var result = resp['result']
+					document.getElementById("div_result").value = result;
+				}
+			};
+			xhttp.send(formData);
 		}
 	</script>
 </body>
