@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+	<title>Calculator</title>
+</head>
+
+<body>
+	<form action="{{ url_for('add') }}" method="POST" id="ADD">
+		<input type="number" name="addx" id="addx" placeholder="X" required/>
+		+
+		<input type="number" name="addy" id="addy" placeholder="Y" required/>
+		<button type="submit" form="ADD" value="Submit">ADD</button>
+	</form>
+	<br><br>
+
+	<form action="{{ url_for('subtract') }}" method="POST" id="SUB">
+		<input type="number" name="subx" id="subx" placeholder="X" required/>
+		-
+		<input type="number" name="suby" id="suby" placeholder="Y" required/>
+		<button type="submit" form="SUB" value="Submit">SUB</button>
+	</form>
+	<br><br>
+
+	<form action="{{ url_for('multiply') }}" method="POST" id="MUL">
+		<input type="number" name="mulx" id="mulx" placeholder="X" required/>
+		*
+		<input type="number" name="muly" id="muly" placeholder="Y" required/>
+		<button type="submit" form="MUL" value="Submit">MUL</button>
+	</form>
+	<br><br>
+
+	<form action="{{ url_for('divide') }}" method="POST" id="DIV">
+		<input type="number" name="divx" id="divx" placeholder="X" required/>
+		/
+		<input type="number" name="divy" id="divy" placeholder="Y" required/>
+		<button type="submit" form="DIV" value="Submit">DIV</button>
+	</form>
+	<br><br>
+</body>
+
+</html>

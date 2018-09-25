@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+	<title>Result</title>
+</head>
+
+<body>
+	<h1>Congratulations, you used {{operation}}!</h1>
+	
+	{% if operation == "Multiplication" %}
+		<p>Your calculation: <b>( {{mulx}} * {{muly}} )</b></p>
+		<p>Your result: <b>{{result}}</b></p>
+	{% elif operation == "Addition" %}
+		<p>Your calculation: <b>( {{addx}} + {{addy}} )</b></p>
+		<p>Your result: <b>{{result}}</b></p>
+	{% elif operation == "Subtraction" %}
+		<p>Your calculation: <b>( {{subx}} - {{suby}} )</b></p>
+		<p>Your result: <b>{{result}}</b></p>
+	{% elif operation == "Division" %}
+		<p>Your calculation: <b>( {{divx}} / {{divy}} )</b></p>
+		<p>Your result: <b>{{result}}</b></p>
+	{% else %}
+		<p>Something went terribly wrong.</p>
+	{% endif %}
+
+	<br><br><br>
+	<a href="/home">Go back</a>
+</body>
+
+</html>

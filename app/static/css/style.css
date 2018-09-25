@@ -1,0 +1,28 @@
+html,
+body{
+	height: 100%;
+	width: 100%;
+	background: #073642;
+	color: #d33682;
+	font-size: 18px;
+}
+
+input[type="number"]{
+	color: #073642;
+	background: #93a1a1;
+	border: 2px solid #002b36;
+	text-align: center;
+    border-radius: 4px;
+}
+
+input::placeholder{
+	color: #073642;
+}
+
+a:link {
+    color: #b58900;
+}
+
+a:visited {
+    color: #b58900;
+}
