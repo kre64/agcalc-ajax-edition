@@ -41,8 +41,17 @@
 
 	<script>
 		function add(){
+			var xhttp = new XMLHttpRequest();
+			xhttp.open("POST", "{{ url_for('add') }}", true)
+			xhttp.responseType = 'json'
 			output = "result!!";
+			xhttp.onload = function(e){
+				if(this.status == 200){
+					console.log("hey!!");
+				}
+			};
 			document.getElementById("add_result").value = output;
+			xhttp.send();
 		}
 	</script>
 </body>

@@ -1,5 +1,5 @@
 #routes.py
-from flask import render_template, request
+from flask import render_template, request, jsonify
 from app import app
 
 @app.route('/')
@@ -17,7 +17,7 @@ def add():
 	except:
 		result = "Something went terribly wrong, how did you manage that?"
 	finally:
-		return render_template('result.html', operation=operation, addx=addx, addy=addy, result=result)
+		return result
 
 @app.route('/subtract', methods=['POST'])
 def subtract():
