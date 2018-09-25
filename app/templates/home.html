@@ -7,6 +7,7 @@
 </head>
 
 <body>
+	<!-- You should probably make things less redundant -->
 	<form id="ADD">
 		<input type="number" name="addx" id="addx" placeholder="X" required/>
 		+
@@ -40,6 +41,16 @@
 	<br><br>
 
 	<script>
+		/*
+			Should these functions be reduced to just one? The only difference between them are these three lines:
+
+				var formData = new FormData(document.getElementById("ADD"))
+				xhttp.open("POST", "{{ url_for('add') }}", true)
+				document.getElementById("add_result").value = result;
+
+				the variable in each is the operation type
+
+		*/
 		function add(){
 			var xhttp = new XMLHttpRequest();
 			var formData = new FormData(document.getElementById("ADD"))
