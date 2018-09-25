@@ -14,7 +14,7 @@ def add():
 	try:
 		result = addx + addy
 	except:
-		result = "Something went terribly wrong, how did you manage that?"
+		result = "Input Error"
 	finally:
 		return jsonify({'result' : result})
 
@@ -25,7 +25,7 @@ def subtract():
 	try:
 		result = subx - suby
 	except:
-		result = "Something went terribly wrong, how did you manage that?"
+		result = "Input Error"
 	finally:
 		return jsonify({'result' : result})
 
@@ -36,7 +36,7 @@ def multiply():
 	try:
 		result = mulx * muly
 	except:
-		result = "Something went terribly wrong, how did you manage that?"
+		result = "Input Error"
 	finally:
 		return jsonify({'result' : result})
 
@@ -47,6 +47,6 @@ def divide():
 	try:
 		result = divx / divy
 	except:
-		result = "Something went terribly wrong, are you trying to divide by zero?"
+		result = "Input Error"
 	finally:
 		return jsonify({'result' : result})
