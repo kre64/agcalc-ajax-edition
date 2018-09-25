@@ -7,11 +7,11 @@
 </head>
 
 <body>
-	<form action="{{ url_for('add') }}" method="POST" id="ADD">
+	<form id="ADD">
 		<input type="number" name="addx" id="addx" placeholder="X" required/>
 		+
 		<input type="number" name="addy" id="addy" placeholder="Y" required/>
-		<button type="submit" form="ADD" value="Submit">ADD</button>
+		<button type="button" form="ADD" value="Submit" onclick="add()">ADD</button> = <input name="add_result" id="add_result" disabled/>
 	</form>
 	<br><br>
 
@@ -19,7 +19,7 @@
 		<input type="number" name="subx" id="subx" placeholder="X" required/>
 		-
 		<input type="number" name="suby" id="suby" placeholder="Y" required/>
-		<button type="submit" form="SUB" value="Submit">SUB</button>
+		<button type="submit" form="SUB" value="Submit" onclick="add()">SUB</button> = <input name="add_result" id="add_result" disabled/>
 	</form>
 	<br><br>
 
@@ -27,7 +27,7 @@
 		<input type="number" name="mulx" id="mulx" placeholder="X" required/>
 		*
 		<input type="number" name="muly" id="muly" placeholder="Y" required/>
-		<button type="submit" form="MUL" value="Submit">MUL</button>
+		<button type="submit" form="MUL" value="Submit" onclick="add()">MUL</button> = <input name="add_result" id="add_result" disabled/>
 	</form>
 	<br><br>
 
@@ -35,9 +35,16 @@
 		<input type="number" name="divx" id="divx" placeholder="X" required/>
 		/
 		<input type="number" name="divy" id="divy" placeholder="Y" required/>
-		<button type="submit" form="DIV" value="Submit">DIV</button>
+		<button type="submit" form="DIV" value="Submit" onclick="add()">DIV</button> = <input name="add_result" id="add_result" disabled/>
 	</form>
 	<br><br>
+
+	<script>
+		function add(){
+			output = "result!!";
+			document.getElementById("add_result").value = output;
+		}
+	</script>
 </body>
 
 </html>
